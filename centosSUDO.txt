@@ -1,0 +1,5 @@
+sudo setenforce 0
+sudo systemctl start httpd
+sudo systemctl enable httpd
+sudo systemctl start mariadb
+sudo systemctl restart httpd.service
