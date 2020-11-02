@@ -1,0 +1,6 @@
+https://localhost/prestashop/index.php
+
+https://localhost/prestashop/admin428cvzpum/
+
+hasło z autouzupełniania
+
