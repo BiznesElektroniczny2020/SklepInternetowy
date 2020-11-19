@@ -1,0 +1,66 @@
+import time
+from random import randint
+from selenium import webdriver
+from selenium.webdriver.common.by import By
+from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
+from selenium.webdriver.common.keys import Keys
+
+driver = webdriver.Firefox()
+driver.get("https://localhost/prestashop")
+driver.find_element_by_class_name("user-info").click()
+time.sleep(1)
+driver.find_element_by_xpath('//*[@class="no-account"]').click()
+driver.find_element_by_xpath('//*[@value="1"]').click()
+driver.find_element_by_xpath('//*[@name="firstname"]').send_keys("Adam")
+driver.find_element_by_xpath('//*[@name="lastname"]').send_keys("Kowalski")
+driver.find_element_by_xpath('//*[@name="email"]').send_keys("p5%d@gmail.com" % randint(1,12222))
+driver.find_element_by_xpath('//*[@name="password"]').send_keys("qwerty123")
+driver.find_element_by_xpath('//*[@name="birthday"]').send_keys("1999-11-11")
+driver.find_element_by_xpath('//*[@name="psgdpr"]').click()
+
+driver.find_element_by_xpath('//*[@class="btn btn-primary form-control-submit float-xs-right"]').click()
+for x in range(5):
+    element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID,"category-15")))
+    element.click()
+    driver.find_element_by_xpath('//*[@data-id-product="%d"]' % (1722+x)).click()
+    driver.find_element_by_xpath('//*[@id="quantity_wanted"]').send_keys(Keys.CONTROL, 'a')
+    driver.find_element_by_xpath('//*[@id="quantity_wanted"]').send_keys("%d" % randint(1,10))
+    driver.find_element_by_xpath('//*[@data-button-action="add-to-cart"]').click()
+    element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID,"product")))
+    element.click()
+for x in range(5):
+    element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID,"category-14")))
+    element.click()
+    driver.find_element_by_xpath('//*[@data-id-product="%d"]' % (1692+x)).click()
+    driver.find_element_by_xpath('//*[@id="quantity_wanted"]').send_keys(Keys.CONTROL, 'a')
+    driver.find_element_by_xpath('//*[@id="quantity_wanted"]').send_keys("%d" % randint(1,10))
+    driver.find_element_by_xpath('//*[@data-button-action="add-to-cart"]').click()
+    element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID,"product")))
+    element.click()
+element = WebDriverWait(driver,10).until(EC.presence_of_element_located((By.ID,"category-15")))
+element.click()
+time.sleep(1)
+driver.find_element_by_xpath('//*[@class="material-icons shopping-cart"]').click()
+driver.find_element_by_xpath('//*[@class="remove-from-cart"]').click()
+driver.find_element_by_xpath('//*[@class="btn btn-primary"]').click()
+
+driver.find_element_by_xpath('//*[@name="company"]').send_keys("A Good One")
+driver.find_element_by_xpath('//*[@name="vat_number"]').send_keys("3974839287")
+driver.find_element_by_xpath('//*[@name="address1"]').send_keys("ul. Miszewskiego")
+driver.find_element_by_xpath('//*[@name="address2"]').send_keys("Teatr Miniatura")
+driver.find_element_by_xpath('//*[@name="postcode"]').send_keys("80-800")
+driver.find_element_by_xpath('//*[@name="city"]').send_keys("Gdansk")
+driver.find_element_by_xpath('//*[@name="id_country"]').send_keys("Poland")
+driver.find_element_by_xpath('//*[@name="phone"]').send_keys("832903743")
+driver.find_element_by_xpath('//*[@name="confirm-addresses"]').click()
+driver.find_element_by_xpath('//*[@id="delivery_option_5"]').click()
+driver.find_element_by_xpath('//*[@name="confirmDeliveryOption"]').click()
+driver.find_element_by_xpath('//*[@id="payment-option-2"]').click()
+driver.find_element_by_xpath('//*[@id="conditions_to_approve[terms-and-conditions]"]').click()
+driver.find_element_by_xpath('//*[@class="btn btn-primary center-block"]').click()
+driver.find_element_by_xpath('//*[@class="account"]').click()
+driver.find_element_by_xpath('//*[@id="history-link"]').click()
+driver.find_element_by_xpath('//*[@data-link-action="view-order-details"]').click()
+time.sleep(20)
+driver.close()
