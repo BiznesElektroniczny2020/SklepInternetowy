@@ -1,0 +1,25 @@
+<?php return array (
+  'parameters' => 
+  array (
+    'database_host' => '127.0.0.1',
+    'database_port' => '',
+    'database_name' => 'bazadanych',
+    'database_user' => 'root',
+    'database_password' => 'qwerty',
+    'database_prefix' => 'ps_',
+    'database_engine' => 'InnoDB',
+    'mailer_transport' => 'smtp',
+    'mailer_host' => '127.0.0.1',
+    'mailer_user' => NULL,
+    'mailer_password' => NULL,
+    'secret' => '3SNu3rTibo2eVKQTF0yDIiPWeMRfT43408zE1AhWcyYgbIkqGIMVYioS',
+    'ps_caching' => 'CacheMemcache',
+    'ps_cache_enable' => false,
+    'ps_creation_date' => '2020-10-17',
+    'locale' => 'pl-PL',
+    'use_debug_toolbar' => true,
+    'cookie_key' => 'J0AfABXaxPvq15Py8dI6W6hbVKnkGIK7VYJZNS22mkj7N638vk3RGEko',
+    'cookie_iv' => 'zmrUrYFS',
+    'new_cookie_key' => 'def00000014264373147f8ff190d1f016dc5d64894c9322a72f9edb040080c31cf7b99201308eaf52560e737fd681c64b8399bc593a54f7f2aca217febeba9638e355d4a',
+  ),
+);
