@@ -1,9 +1,9 @@
 <?php return array (
   'parameters' => 
   array (
-    'database_host' => '127.0.0.1',
+    'database_host' => 'db',
     'database_port' => '',
-    'database_name' => 'bazadanych',
+    'database_name' => 'bazadanych10',
     'database_user' => 'root',
     'database_password' => 'qwerty',
     'database_prefix' => 'ps_',
