@@ -4,7 +4,7 @@
     'database_host' => 'biznes-db',
     'database_port' => '',
     'database_name' => 'db_10',
-    'database_user' => 'user_db',
+    'database_user' => 'user_10',
     'database_password' => 'qwerty',
     'database_prefix' => 'ps_',
     'database_engine' => 'InnoDB',
